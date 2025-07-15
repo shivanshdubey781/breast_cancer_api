@@ -36,5 +36,12 @@ def predict(input: InputData):
         "MLPClassifier": int(mlp.predict(data)[0]),
         "VotingClassifier": int(voting.predict(data)[0])
     }
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://5658f4a7-b04f-4673-9411-4f1892992251.lovableproject.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     return {"predictions": predictions}
